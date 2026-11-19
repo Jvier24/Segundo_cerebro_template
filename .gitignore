@@ -1,0 +1,17 @@
+# Obsidian: estado de sesión y caché (se regeneran al abrir la bóveda)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# La configuración de plugins comunitarios y Dataview SÍ se versiona
+!.obsidian/community-plugins.json
+!.obsidian/plugins/dataview/
+!.obsidian/plugins/dataview/**
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
