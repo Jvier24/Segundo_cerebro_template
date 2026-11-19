@@ -1,15 +1,15 @@
 ---
 tipo: area
 estado: activo
-area: INACAP
+area: Estudios
 stack: []
 actualizado: 2026-11-19
-tags: [area, inacap, estudios]
+tags: [area, estudios]
 ---
 
-# 🎓 INACAP
+# 🎓 Estudios
 
-> [!info] Propósito
+> [!NOTE] Propósito
 > Aprender de forma activa: capturar ideas, conectarlas con lo que ya sé y poder recuperarlas después.
 
 Migrada desde el antiguo `20_Areas/Estudio.md`.
@@ -22,7 +22,7 @@ Migrada desde el antiguo `20_Areas/Estudio.md`.
 
 ## Recursos del área
 
-- [[MOC INACAP]]
+- [[MOC Estudios]]
 - [[Pensar es escribir]]
 
 ## Proyectos de esta área
@@ -31,6 +31,6 @@ Migrada desde el antiguo `20_Areas/Estudio.md`.
 
 ## Notas de teoría
 
-<!-- INDICE:area-inacap -->
+<!-- INDICE:area-estudios -->
 - [[Pensar es escribir]]
-<!-- /INDICE:area-inacap -->
+<!-- /INDICE:area-estudios -->

@@ -8,7 +8,7 @@ tags: [sistema, guia]
 
 # 📖 Guía del sistema
 
-Tu segundo cerebro combina **PARA** (dónde vive algo) con un eje de **madurez del conocimiento** (qué tan seguro es). Enfoque mixto: estudios INACAP, desarrollo/automatización e ideas creativas. Pensado para ser leído y actualizado por agentes de código.
+Tu segundo cerebro combina **PARA** (dónde vive algo) con un eje de **madurez del conocimiento** (qué tan seguro es). Enfoque mixto: formación, desarrollo/automatización e ideas creativas. Pensado para ser leído y actualizado por agentes de código.
 
 ---
 
@@ -17,11 +17,9 @@ Tu segundo cerebro combina **PARA** (dónde vive algo) con un eje de **madurez d
 ```text
 00_Inbox/                    Captura sin clasificar
 01_Proyectos/                Proyectos activos (tpl_proyecto)
-  ├── web-scraping-retail/
-  ├── juego-blender/
-  └── sinte-techno/
+  └── proyecto-ejemplo/
 02_Areas/                    Responsabilidades continuas
-  ├── INACAP/
+  ├── Estudios/
   ├── Dev-Stack/
   └── Automatizacion-IA/
 03_Recursos/                 Conocimiento por madurez
@@ -51,15 +49,15 @@ El flujo natural es `teoria → experimento → probado`, y de ahí a un `proyec
 
 ## 4. Automatización (PowerShell)
 
-Abre PowerShell en la raíz de la bóveda (`C:\Users\tallerespa\Desktop\Segundo cerebro`).
+Abre PowerShell en la raíz de la bóveda (la carpeta que clonaste).
 
 ### Crear conocimiento
 
 ```powershell
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Teoria -Titulo "Grafo dirigido"
-.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Experimento -Titulo "Parser con BeautifulSoup" -Proyecto web-scraping-retail -Stack "python, requests"
+.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Experimento -Titulo "Parser con BeautifulSoup" -Proyecto proyecto-ejemplo -Stack "python, requests"
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Sesión reutilizable de requests" -Stack "python, requests"
-.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Proyecto -Titulo "Plan de pruebas" -Proyecto juego-blender
+.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Proyecto -Titulo "Plan de pruebas" -Proyecto proyecto-ejemplo
 ```
 
 Tipos válidos: `Teoria`, `Probado`, `Experimento`, `Proyecto`. Sin argumentos, el script muestra un menú.
@@ -79,7 +77,7 @@ Escanea la bóveda, lee el frontmatter y rellena los bloques marcados. Se ejecut
 .\99_Sistema\Scripts\instalar-tarea.ps1   # opcional: abre la diaria a las 08:00
 ```
 
-> [!warning] Si PowerShell bloquea los scripts
+> [!WARNING] Si PowerShell bloquea los scripts
 > Ejecuta una vez: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
 
 ## 5. Índices automáticos
@@ -94,7 +92,7 @@ Bloques con este formato:
 <!-- /INDICE:teoria -->
 ```
 
-Claves disponibles: `proyectos`, `areas`, `teoria`, `experimento`, `probado`, `archivo`, `inbox`, `recientes`, `area-inacap`, `area-dev-stack`, `area-automatizacion-ia`.
+Claves disponibles: `proyectos`, `areas`, `teoria`, `experimento`, `probado`, `archivo`, `inbox`, `recientes`, `area-estudios`, `area-dev-stack`, `area-automatizacion-ia`.
 
 **No escribas dentro de un bloque**: se sobrescribe. Escribe fuera de él.
 

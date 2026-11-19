@@ -9,7 +9,7 @@ tags: [inicio, sistema]
 # 🏠 Inicio
 
 > [!quote] Segundo Cerebro
-> Estudios **INACAP** · Desarrollo y **automatización** · **Ideas creativas**.
+> **Estudios** · Desarrollo y **automatización** · **Ideas creativas**.
 > Diseñado para ser leído y actualizado tanto por personas como por agentes de código.
 
 ## 🧭 Estructura
@@ -25,7 +25,7 @@ tags: [inicio, sistema]
 
 ## 🎓 Áreas
 
-- [[INACAP]] · [[MOC INACAP]]
+- [[Estudios]] · [[MOC Estudios]]
 - [[Dev-Stack]] · [[MOC Dev-Stack]]
 - [[Automatizacion-IA]] · [[MOC Automatizacion-IA]]
 
@@ -50,7 +50,7 @@ tags: [inicio, sistema]
 - [[configuracion-inicial-de-boveda]] - probado
 - [[Automatizacion-IA]] - area
 - [[Dev-Stack]] - area
-- [[INACAP]] - area
+- [[Estudios]] - area
 <!-- /INDICE:recientes -->
 
 ---

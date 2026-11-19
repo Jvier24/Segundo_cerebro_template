@@ -19,7 +19,7 @@ Por eso conviene invertir el orden: escribir primero, enlazar después y clasifi
 
 ## Resumen
 
-Los mapas ([[MOC Dev-Stack]], [[MOC INACAP]], [[MOC Automatizacion-IA]]) son el puente entre la estructura PARA y la red de ideas.
+Los mapas ([[MOC Dev-Stack]], [[MOC Estudios]], [[MOC Automatizacion-IA]]) son el puente entre la estructura PARA y la red de ideas.
 
 ## Ejemplos / Código de referencia
 

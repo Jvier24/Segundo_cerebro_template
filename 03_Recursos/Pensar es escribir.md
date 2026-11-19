@@ -1,7 +1,7 @@
 ---
 tipo: teoria
 estado: borrador
-area: INACAP
+area: Estudios
 stack: []
 proyecto: ""
 actualizado: 2026-11-19

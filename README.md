@@ -2,7 +2,7 @@
 
 Bóveda de **Obsidian** lista para clonar, pensada para estudios, desarrollo y automatización, e ideas creativas. Está diseñada para ser leída y actualizada tanto por personas como por agentes de código (OpenCode, Antigravity, etc.).
 
-> [!info] Qué incluye
+> [!NOTE] Qué incluye
 > Estructura PARA · 4 plantillas de madurez del conocimiento · scripts en Python y PowerShell · **Dataview instalado y habilitado** · una nota `probado` de referencia · reglas normativas para agentes. Sin notas privadas de proyectos.
 
 ---
@@ -17,12 +17,12 @@ La estructura PARA decide **dónde vive** cada nota; el frontmatter decide **qu�
 | --- | --- | --- |
 | `00_Inbox/` | Capturas, experimentos en curso y diarias | `_Inbox.md` |
 | `01_Proyectos/` | Trabajo con meta, stack y repo | `_Proyectos.md` |
-| `02_Areas/` | Responsabilidades continuas (INACAP, Dev-Stack, Automatizacion-IA) | `_Areas.md` |
+| `02_Areas/` | Responsabilidades continuas (Estudios, Dev-Stack, Automatizacion-IA) | `_Areas.md` |
 | `03_Recursos/` | Teoría, conocimiento validado y mapas | `_Recursos.md` |
 | `04_Archivo/` | Histórico. **Ignorar por defecto** | `_Archivo.md` |
 | `99_Sistema/` | Plantillas, scripts, guías y convenciones | `Inicio.md` |
 
-Las carpetas de proyecto (`web-scraping-retail`, `juego-blender`, `sinte-techno`) están vacías y conservan su `.gitkeep`: son ejemplos de estructura, no contenido privado.
+La carpeta `proyecto-ejemplo/` está vacía y conserva su `.gitkeep`: es un ejemplo de estructura, no contenido privado.
 
 ### Eje de madurez
 
@@ -37,7 +37,7 @@ borrador   activo          validado
 | `experimento` | `activo` | `tpl_experimento.md` | `00_Inbox/` |
 | `probado` | `validado` | `tpl_probado.md` | `03_Recursos/` |
 | `proyecto` | `activo` | `tpl_proyecto.md` | `01_Proyectos/<slug>/` |
-| `diaria` | `borrador` | (generada por `crear_nota.py`) | `00_Inbox/YYYY-MM-DD.md` |
+| `diaria` | `borrador` | (generada por [`crear_nota.py`](99_Sistema/Scripts/crear_nota.py)) | `00_Inbox/YYYY-MM-DD.md` |
 
 **Promoción:** cuando un `experimento` se valida, se mueve a `03_Recursos/` (o a `01_Proyectos/<slug>/` si pasa a ser un proyecto) y su frontmatter cambia a `tipo: probado` + `estado: validado`, completando `## Condiciones y Entorno`. Nunca queda un experimento validado en el Inbox.
 
@@ -58,7 +58,7 @@ Las reglas completas para agentes están en [AGENTS.md](AGENTS.md); el índice n
    Después pulsa **Recargar** (`Ctrl + R`) o reinicia Obsidian.
 5. Ya está: los bloques `dataview` de [00_Dashboard.md](00_Dashboard.md) se renderizan como tablas. Dataview se instaló vía archivos en `.obsidian/plugins/dataview/` y está habilitado en `.obsidian/community-plugins.json`.
 
-> [!warning] Modo restringido
+> [!WARNING] Modo restringido
 > El interruptor de *Restricted mode* se guarda en la configuración global de Obsidian, **no dentro de la bóveda**. Por eso no viene desactivado en el repo y hay que cambiarlo una vez por equipo.
 
 **Requisitos:** Obsidian de escritorio · Python 3 (solo biblioteca estándar) · PowerShell 5.1+ para los scripts `.ps1`.
@@ -67,7 +67,7 @@ Las reglas completas para agentes están en [AGENTS.md](AGENTS.md); el índice n
 
 ## Scripts
 
-### `crear_nota.py` — crear notas
+### [`crear_nota.py`](99_Sistema/Scripts/crear_nota.py) — crear notas
 
 Sin dependencias externas. Resuelve las rutas por sí mismo, así que funciona desde cualquier directorio.
 
@@ -84,7 +84,7 @@ python 99_Sistema/Scripts/crear_nota.py --tipo diaria --titulo "Cierre de sprint
 - **No sobrescribe**: si el archivo existe, lo indica y termina.
 - La `diaria` lleva las secciones `## Log Técnico del Día`, `## Tareas / Bloqueos` y `## Ideas Rápidas`.
 
-### `actualizar-indices.ps1` — regenerar índices
+### [`actualizar-indices.ps1`](99_Sistema/Scripts/actualizar-indices.ps1) — regenerar índices
 
 Reescribe únicamente el contenido entre los marcadores `<!-- INDICE:clave -->` a partir del frontmatter. Nunca escribas a mano dentro de esos bloques.
 
@@ -96,11 +96,11 @@ Reescribe únicamente el contenido entre los marcadores `<!-- INDICE:clave -->` 
 
 | Script | Función |
 | --- | --- |
-| `nueva-nota.ps1` | Alternativa en PowerShell: acepta `-Proyecto` y `-Stack`, refresca índices y puede abrir la nota con `-Abrir` |
-| `diaria.ps1` | Crea y abre la diaria de hoy |
-| `instalar-tarea.ps1` | Programa la diaria automática a las 08:00 (tarea de Windows) |
+| [`nueva-nota.ps1`](99_Sistema/Scripts/nueva-nota.ps1) | Alternativa en PowerShell: acepta `-Proyecto` y `-Stack`, refresca índices y puede abrir la nota con `-Abrir` |
+| [`diaria.ps1`](99_Sistema/Scripts/diaria.ps1) | Crea y abre la diaria de hoy |
+| [`instalar-tarea.ps1`](99_Sistema/Scripts/instalar-tarea.ps1) | Programa la diaria automática a las 08:00 (tarea de Windows) |
 
-La guía operativa completa está en `99_Sistema/Guía del sistema.md` y las convenciones de metadatos en `99_Sistema/Convenciones.md`.
+La guía operativa completa está en [Guía del sistema](<99_Sistema/Guía del sistema.md>) y las convenciones de metadatos en [Convenciones](99_Sistema/Convenciones.md).
 
 ---
 

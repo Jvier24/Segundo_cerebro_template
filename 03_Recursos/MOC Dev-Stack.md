@@ -36,6 +36,4 @@ tags: [moc, desarrollo]
 
 ## Proyectos relacionados
 
-- `web-scraping-retail`
-- `juego-blender`
-- `sinte-techno`
+- `proyecto-ejemplo`

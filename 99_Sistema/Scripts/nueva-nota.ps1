@@ -4,7 +4,7 @@
 Creates a knowledge note from one of the four official templates.
 
 .EXAMPLE
-.\nueva-nota.ps1 -Tipo Experimento -Titulo "Parser con BeautifulSoup" -Proyecto web-scraping-retail -Stack "python, requests"
+.\nueva-nota.ps1 -Tipo Experimento -Titulo "Parser con BeautifulSoup" -Proyecto proyecto-ejemplo -Stack "python, requests"
 #>
 
 param(

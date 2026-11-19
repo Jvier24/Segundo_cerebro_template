@@ -47,7 +47,7 @@ def contenido_diaria(hoy, titulo):
         "\n"
         f"# {hoy} - Diario\n"
         "\n"
-        "> [!info] Foco del dia\n"
+        "> [!NOTE] Foco del dia\n"
         f"> {titulo}\n"
         "\n"
         "## Log Técnico del Día\n"

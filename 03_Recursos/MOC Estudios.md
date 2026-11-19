@@ -1,16 +1,16 @@
 ---
 tipo: moc
 estado: activo
-area: INACAP
+area: Estudios
 stack: []
 actualizado: 2026-11-19
-tags: [moc, inacap]
+tags: [moc, Estudios]
 ---
 
-# 🎓 MOC INACAP
+# 🎓 MOC Estudios
 
 > [!abstract] Sobre este mapa
-> Todo lo que aprendo en INACAP. Área: [[INACAP]]. Migrado desde `_MOC Estudio.md`.
+> Todo lo que aprendo en el área de Estudios. Área: [[Estudios]]. Migrado desde `_MOC Estudio.md`.
 
 ## Notas clave
 
@@ -30,6 +30,6 @@ tags: [moc, inacap]
 
 ## Notas de teoría del área
 
-<!-- INDICE:area-inacap -->
+<!-- INDICE:area-estudios -->
 - [[Pensar es escribir]]
-<!-- /INDICE:area-inacap -->
+<!-- /INDICE:area-estudios -->

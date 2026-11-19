@@ -18,7 +18,7 @@ Dejar la bóveda operativa para Obsidian y para agentes de código: estructura P
 
 - `00_Inbox/` — capturas, experimentos y diarias
 - `01_Proyectos/` — proyectos activos
-- `02_Areas/` — INACAP, Dev-Stack, Automatizacion-IA
+- `02_Areas/` — Estudios, Dev-Stack, Automatizacion-IA
 - `03_Recursos/` — teoría, conocimiento validado y mapas
 - `04_Archivo/` — histórico (ignorar por defecto)
 - `99_Sistema/Templates/` y `99_Sistema/Scripts/`
@@ -53,5 +53,5 @@ python 99_Sistema/Scripts/crear_nota.py --tipo probado --titulo "Titulo"
 - Nombres de carpetas y archivos sin acentos; el contenido puede llevar acentos.
 - Fecha de verificación: 2026-11-19. Comprobados los cinco tipos de nota de `crear_nota.py`, sus destinos y la resolución de wikilinks.
 
-> [!info] Resultado
+> [!NOTE] Resultado
 > Esta nota aparece en la consulta «Conocimiento validado reciente» de [[00_Dashboard]] porque cumple `tipo = "probado"` y `estado = "validado"` dentro de `03_Recursos/`.

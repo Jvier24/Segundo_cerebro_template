@@ -9,7 +9,7 @@ tags: [area, desarrollo]
 
 # 💻 Dev-Stack
 
-> [!info] Propósito
+> [!NOTE] Propósito
 > Mantener y documentar el stack de desarrollo: entregar valor de forma sostenible y convertir lo que funciona en patrones reutilizables.
 
 Migrada desde el antiguo `20_Areas/Trabajo.md`.
@@ -27,9 +27,7 @@ Migrada desde el antiguo `20_Areas/Trabajo.md`.
 
 ## Proyectos de esta área
 
-- `web-scraping-retail`
-- `juego-blender`
-- `sinte-techno`
+- `proyecto-ejemplo`
 
 ## Notas de teoría
 

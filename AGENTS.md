@@ -72,7 +72,7 @@ Cada vez que se te pida documentar un hallazgo, una solución o un apunte en est
 4. **Prefiere el script** para crearlas (rellena plantilla y actualiza índices):
 
    ```powershell
-   .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Sesion reutilizable" -Proyecto web-scraping-retail -Stack "python, requests"
+   .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Sesion reutilizable" -Proyecto proyecto-ejemplo -Stack "python, requests"
    ```
 
    Tipos válidos: `Teoria`, `Probado`, `Experimento`, `Proyecto`.

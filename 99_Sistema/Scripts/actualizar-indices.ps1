@@ -114,7 +114,7 @@ if ($recientesArr.Count -eq 0) {
 }
 
 $areaMap = @{
-    'area-inacap'              = 'INACAP'
+    'area-estudios'              = 'Estudios'
     'area-dev-stack'           = 'Dev-Stack'
     'area-automatizacion-ia'   = 'Automatizacion-IA'
 }

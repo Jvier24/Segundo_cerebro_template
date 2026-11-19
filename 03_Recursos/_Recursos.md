@@ -40,7 +40,7 @@ Soluciones que funcionan, con código y condiciones de entorno.
 
 ## Mapas por área
 
-- [[MOC INACAP]]
+- [[MOC Estudios]]
 - [[MOC Dev-Stack]]
 - [[MOC Automatizacion-IA]]
 
@@ -52,6 +52,6 @@ Soluciones que funcionan, con código y condiciones de entorno.
 
 ```powershell
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Teoria -Titulo "Concepto"
-.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Experimento -Titulo "Prueba" -Proyecto sinte-techno
+.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Experimento -Titulo "Prueba" -Proyecto proyecto-ejemplo
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Patrón" -Stack "python, requests"
 ```

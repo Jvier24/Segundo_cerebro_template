@@ -71,7 +71,7 @@ El `--titulo` se coloca como «Foco del día» dentro de la nota; el nombre del 
 Equivalente con más opciones: acepta los parámetros `-Stack` y `-Proyecto`, actualiza los índices automáticamente y puede abrir la nota en Obsidian.
 
 ```powershell
-.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Sesion reutilizable" -Proyecto web-scraping-retail -Stack "python, requests" -Abrir
+.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Sesion reutilizable" -Proyecto proyecto-ejemplo -Stack "python, requests" -Abrir
 ```
 
 ## Otros scripts

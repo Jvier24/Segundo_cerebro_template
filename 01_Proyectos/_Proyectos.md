@@ -20,14 +20,12 @@ tags: [indice, proyectos]
 
 | Proyecto | Carpeta |
 | --- | --- |
-| Web scraping retail | `web-scraping-retail/` |
-| Juego Blender | `juego-blender/` |
-| Sintetizador techno | `sinte-techno/` |
+| Proyecto de ejemplo | `proyecto-ejemplo/` |
 
 ## Crear uno
 
 ```powershell
-.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Proyecto -Titulo "Nombre" -Proyecto web-scraping-retail
+.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Proyecto -Titulo "Nombre" -Proyecto proyecto-ejemplo
 ```
 
 Si omites `-Proyecto`, la nota se crea en la raíz de `01_Proyectos`.

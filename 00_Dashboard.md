@@ -23,7 +23,7 @@ tags: [dashboard, indice]
 
 ## 🎓 Áreas
 
-- [[02_Areas/INACAP/INACAP|INACAP]]
+- [[02_Areas/Estudios/Estudios|Estudios]]
 - [[02_Areas/Dev-Stack/Dev-Stack|Dev-Stack]]
 - [[02_Areas/Automatizacion-IA/Automatizacion-IA|Automatizacion-IA]]
 
@@ -71,7 +71,7 @@ SORT actualizado DESC
 ## 🔧 Referencia rápida
 
 ```powershell
-.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Patrón" -Proyecto sinte-techno -Stack "python"
+.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Patrón" -Proyecto proyecto-ejemplo -Stack "python"
 .\99_Sistema\Scripts\actualizar-indices.ps1
 .\99_Sistema\Scripts\diaria.ps1
 ```

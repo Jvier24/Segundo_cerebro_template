@@ -15,14 +15,14 @@ tags: [indice, areas]
 <!-- INDICE:areas -->
 - [[Automatizacion-IA]]
 - [[Dev-Stack]]
-- [[INACAP]]
+- [[Estudios]]
 <!-- /INDICE:areas -->
 
 ---
 
 | Área | Nota | Mapa |
 | --- | --- | --- |
-| 🎓 INACAP | [[INACAP]] | [[MOC INACAP]] |
+| 🎓 Estudios | [[Estudios]] | [[MOC Estudios]] |
 | 💻 Dev-Stack | [[Dev-Stack]] | [[MOC Dev-Stack]] |
 | 🤖 Automatización con IA | [[Automatizacion-IA]] | [[MOC Automatizacion-IA]] |
 

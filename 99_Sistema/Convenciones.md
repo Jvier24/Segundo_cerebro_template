@@ -12,7 +12,7 @@ Reglas para que un agente de código —o tú— puedan leer y escribir esta bó
 
 ## Nombres
 
-- Carpetas y archivos: **sin acentos**, en kebab-case cuando haga falta (`web-scraping-retail`). Los acentos en el contenido son normales.
+- Carpetas y archivos: **sin acentos**, en kebab-case cuando haga falta (`proyecto-ejemplo`). Los acentos en el contenido son normales.
 - Notas diarias: `YYYY-MM-DD.md` en `00_Inbox`.
 - El resto: título claro en forma de afirmación para teoría; nombre descriptivo para proyecto.
 
@@ -25,7 +25,7 @@ Todas las notas empiezan con YAML. Las listas van en una sola línea para que lo
 tipo: experimento
 estado: activo
 stack: [python, requests]
-proyecto: sinte-techno
+proyecto: proyecto-ejemplo
 actualizado: 2026-11-19
 ---
 ```
@@ -43,7 +43,7 @@ actualizado: 2026-11-19
 
 | Campo | Uso |
 | --- | --- |
-| `area` | `INACAP`, `Dev-Stack`, `Automatizacion-IA` |
+| `area` | `Estudios`, `Dev-Stack`, `Automatizacion-IA` |
 | `stack` | Lista de tecnologías; `[]` si aún no aplica |
 | `proyecto` | Slug de la carpeta en `01_Proyectos`, o `""` |
 | `repo` | URL o ruta del repositorio, o `""` |
@@ -55,7 +55,7 @@ Notas de sistema e índices pueden usar `tipo: indice`, `tipo: area`, `tipo: moc
 ## Enlaces
 
 - Usa los wikilinks de Obsidian (dobles corchetes) para que se actualicen al renombrar.
-- Toda nota de teoría enlaza al menos su mapa correspondiente: [[MOC INACAP]], [[MOC Dev-Stack]] o [[MOC Automatizacion-IA]].
+- Toda nota de teoría enlaza al menos su mapa correspondiente: [[MOC Estudios]], [[MOC Dev-Stack]] o [[MOC Automatizacion-IA]].
 - Toda nota `probado` debe poder reproducirse con lo escrito en `## Condiciones y Entorno`.
 
 ## PARA: destino de cada nota
@@ -90,7 +90,7 @@ El esquema anterior (`00_Inicio`, `10_Proyectos`, `20_Areas`, `30_Recursos`, `40
 | --- | --- |
 | `00_Inicio` | `99_Sistema` |
 | `10_Proyectos` | `01_Proyectos` + `04_Archivo` |
-| `20_Areas/Estudio` | `02_Areas/INACAP` |
+| `20_Areas/Estudio` | `02_Areas/Estudios` |
 | `20_Areas/Trabajo` | `02_Areas/Dev-Stack` |
 | `20_Areas/Personal` | `02_Areas/Automatizacion-IA` |
 | `30_Recursos/Notas atomicas` | `03_Recursos` (`tipo: teoria`) |

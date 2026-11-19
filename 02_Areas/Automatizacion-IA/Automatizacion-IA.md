@@ -9,7 +9,7 @@ tags: [area, ia, automatizacion, creatividad]
 
 # 🤖 Automatización-IA
 
-> [!info] Propósito
+> [!NOTE] Propósito
 > Explorar la automatización con IA y las ideas creativas. Un espacio para probar sin obligación de resultado.
 
 Migrada desde el antiguo `20_Areas/Personal.md`, reorientada a automatización e ideas creativas.
@@ -27,7 +27,7 @@ Migrada desde el antiguo `20_Areas/Personal.md`, reorientada a automatización e
 
 ## Proyectos de esta área
 
-- `sinte-techno` (creatividad + automatización)
+- `proyecto-ejemplo`
 
 ## Notas de teoría
 

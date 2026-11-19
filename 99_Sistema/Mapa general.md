@@ -23,9 +23,7 @@ Vista completa de la bóveda tras la migración. Para navegar cuando no sabes d�
 
 ## Proyectos
 
-- `web-scraping-retail`
-- `juego-blender`
-- `sinte-techno`
+- `proyecto-ejemplo`
 
 Ver [[_Proyectos]].
 
@@ -33,7 +31,7 @@ Ver [[_Proyectos]].
 
 | Área | Nota de área | Mapa |
 | --- | --- | --- |
-| 🎓 Estudios | [[INACAP]] | [[MOC INACAP]] |
+| 🎓 Estudios | [[Estudios]] | [[MOC Estudios]] |
 | 💻 Desarrollo | [[Dev-Stack]] | [[MOC Dev-Stack]] |
 | 🤖 Automatización | [[Automatizacion-IA]] | [[MOC Automatizacion-IA]] |
 
@@ -46,7 +44,7 @@ Ver [[_Proyectos]].
 | `probado` | `validado` | Solución que funciona y está documentada |
 | `proyecto` | `activo` | Trabajo en curso con stack y repo |
 
-> [!info] Índices automáticos
+> [!NOTE] Índices automáticos
 > Los bloques `<!-- INDICE:... -->` se regeneran con `actualizar-indices.ps1`. No escribas dentro de ellos.
 
 Volver a [[Inicio]]
