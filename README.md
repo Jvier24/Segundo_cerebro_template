@@ -1,9 +1,36 @@
 # 🧠 Segundo Cerebro — Template Repository
 
-Bóveda de **Obsidian** lista para clonar, pensada para estudios, desarrollo y automatización, e ideas creativas. Está diseñada para ser leída y actualizada tanto por personas como por agentes de código (OpenCode, Antigravity, etc.).
+[![Obsidian](https://img.shields.io/badge/Obsidian-vault-7C3AED?style=flat-square&logo=obsidian&logoColor=white)](https://obsidian.md/)
+[![PARA](https://img.shields.io/badge/PARA-M%C3%A9todo-2563EB?style=flat-square)](#arquitectura)
+[![AI Agents](https://img.shields.io/badge/AI%20Agents-AGENTS.md-0891B2?style=flat-square)](AGENTS.md)
+[![Python](https://img.shields.io/badge/Python-3%2B-3776AB?style=flat-square&logo=python&logoColor=white)](99_Sistema/Scripts/crear_nota.py)
+[![Template](https://img.shields.io/badge/GitHub-Template-2EA44F?style=flat-square&logo=github&logoColor=white)](https://github.com/new)
+
+Bóveda de **Obsidian** lista para clonar, pensada para estudios, desarrollo y automatización, e ideas creativas. Está diseñada para ser leída y actualizada tanto por personas como por agentes de código (OpenCode, Cursor, Windsurf, Antigravity…).
 
 > [!NOTE] Qué incluye
 > Estructura PARA · 4 plantillas de madurez del conocimiento · scripts en Python y PowerShell · **Dataview instalado y habilitado** · una nota `probado` de referencia · reglas normativas para agentes. Sin notas privadas de proyectos.
+
+---
+
+## ¿Por qué usar esta plantilla?
+
+Trabajar con agentes de código tiene un problema silencioso: **todo lo que escriben parece igual de fiable**. Esta plantilla lo resuelve con tres mecanismos concretos:
+
+1. **El conocimiento no se mezcla con el ruido.** El eje de madurez `teoria` → `experimento` → `probado` obliga a declarar en el frontmatter si una idea es especulativa, si está en prueba o si funciona de verdad. Así el agente puede citar código `probado` como fuente de verdad y tratar un `experimento` como referencia no confirmada, sin arrastrar pruebas fallidas a producción.
+
+2. **Reglas explícitas de lectura y escritura para el agente.** [`AGENTS.md`](AGENTS.md) define la jerarquía de verdad, exige buscar en `03_Recursos/` y `01_Proyectos/` antes de proponer código e **ignora por completo `04_Archivo/`** para que el material histórico no contamine el contexto del LLM. Cualquier agente que abra la bóveda obedece las mismas reglas, sin importar la herramienta.
+
+3. **Cero fricción desde el primer minuto.** El CLI [`crear_nota.py`](99_Sistema/Scripts/crear_nota.py) usa solo Python estándar (sin `pip install`) y Dataview viene preinstalado, así que el estado de la bóveda —proyectos activos, conocimiento validado y experimentos— se ve al instante como tablas en [`00_Dashboard.md`](00_Dashboard.md).
+
+---
+
+## Vista Previa
+
+![Dashboard en Obsidian](docs/dashboard-preview.png)
+
+> [!TIP] Personaliza esta imagen
+> Guarda tu propia captura en `docs/dashboard-preview.png` y sustituirá automáticamente esta vista previa.
 
 ---
 
