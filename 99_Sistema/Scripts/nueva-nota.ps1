@@ -25,7 +25,7 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $map = [ordered]@{
     'Teoria'      = @{ Template = 'tpl_teoria.md';      Folder = '03_Recursos' }
     'Probado'     = @{ Template = 'tpl_probado.md';     Folder = '03_Recursos' }
-    'Experimento' = @{ Template = 'tpl_experimento.md'; Folder = '03_Recursos' }
+    'Experimento' = @{ Template = 'tpl_experimento.md'; Folder = '00_Inbox' }
     'Proyecto'    = @{ Template = 'tpl_proyecto.md';    Folder = '01_Proyectos' }
 }
 
