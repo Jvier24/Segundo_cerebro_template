@@ -19,9 +19,7 @@ Bóveda de **Obsidian** lista para clonar, pensada para estudios, desarrollo y a
 Trabajar con agentes de código tiene un problema silencioso: **todo lo que escriben parece igual de fiable**. Esta plantilla lo resuelve con tres mecanismos concretos:
 
 1. **El conocimiento no se mezcla con el ruido.** El eje de madurez `teoria` → `experimento` → `probado` obliga a declarar en el frontmatter si una idea es especulativa, si está en prueba o si funciona de verdad. Así el agente puede citar código `probado` como fuente de verdad y tratar un `experimento` como referencia no confirmada, sin arrastrar pruebas fallidas a producción.
-
 2. **Reglas explícitas de lectura y escritura para el agente.** [`AGENTS.md`](AGENTS.md) define la jerarquía de verdad, exige buscar en `03_Recursos/` y `01_Proyectos/` antes de proponer código e **ignora por completo `04_Archivo/`** para que el material histórico no contamine el contexto del LLM. Cualquier agente que abra la bóveda obedece las mismas reglas, sin importar la herramienta.
-
 3. **Cero fricción desde el primer minuto.** El CLI [`crear_nota.py`](99_Sistema/Scripts/crear_nota.py) usa solo Python estándar (sin `pip install`) y Dataview viene preinstalado, así que el estado de la bóveda —proyectos activos, conocimiento validado y experimentos— se ve al instante como tablas en [`00_Dashboard.md`](00_Dashboard.md).
 
 ---
@@ -50,7 +48,7 @@ La estructura PARA decide **dónde vive** cada nota; el frontmatter decide **qu�
 | `04_Archivo/` | Histórico. **Ignorar por defecto** | `_Archivo.md` |
 | `99_Sistema/` | Plantillas, scripts, guías y convenciones | `Inicio.md` |
 
-La carpeta `proyecto-ejemplo/` está vacía y conserva su `.gitkeep`: es un ejemplo de estructura, no contenido privado.
+El template incluye datos de ejemplo neutros: `proyecto-ejemplo/` contiene [`proyecto-ejemplo.md`](01_Proyectos/proyecto-ejemplo/proyecto-ejemplo.md) y `00_Inbox/` incluye el experimento de muestra [`prueba-parser-generico.md`](00_Inbox/prueba-parser-generico.md). Así, [`00_Dashboard.md`](00_Dashboard.md) muestra tablas pobladas al clonar.
 
 ### Eje de madurez
 
@@ -102,7 +100,7 @@ Sin dependencias externas. Resuelve las rutas por sí mismo, así que funciona d
 ```powershell
 python 99_Sistema/Scripts/crear_nota.py --tipo teoria --titulo "Grafos dirigidos"
 python 99_Sistema/Scripts/crear_nota.py --tipo probado --titulo "Sesion HTTP reutilizable"
-python 99_Sistema/Scripts/crear_nota.py --tipo experimento --titulo "Parser de retail"
+python 99_Sistema/Scripts/crear_nota.py --tipo experimento --titulo "Cliente API REST"
 python 99_Sistema/Scripts/crear_nota.py --tipo proyecto --titulo "Sintetizador modular"
 python 99_Sistema/Scripts/crear_nota.py --tipo diaria --titulo "Cierre de sprint"
 ```
