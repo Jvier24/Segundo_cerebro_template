@@ -2,7 +2,7 @@
 tipo: indice
 estado: activo
 stack: []
-actualizado: 2026-11-19
+actualizado: 2026-11-20
 tags: [moc, sistema]
 ---
 
@@ -45,6 +45,6 @@ Ver [[_Proyectos]].
 | `proyecto` | `activo` | Trabajo en curso con stack y repo |
 
 > [!NOTE] Índices automáticos
-> Los bloques `<!-- INDICE:... -->` se regeneran con `actualizar-indices.ps1`. No escribas dentro de ellos.
+> Los bloques `<!-- INDICE:... -->` se regeneran con `python 99_Sistema/Scripts/actualizar_indices.py` (o `actualizar-indices.ps1` en Windows). No escribas dentro de ellos.
 
 Volver a [[Inicio]]

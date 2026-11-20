@@ -13,9 +13,9 @@ Notas `tipo: teoria`, `estado: borrador`. Una idea por nota, escrita con palabra
 ## Todas las notas de teoría
 
 <!-- INDICE:teoria -->
-- [[Un sistema que no se usa no sirve]]
-- [[Pensar es escribir]]
 - [[Los enlaces importan más que las carpetas]]
+- [[Pensar es escribir]]
+- [[Un sistema que no se usa no sirve]]
 <!-- /INDICE:teoria -->
 
 ---

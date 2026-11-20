@@ -36,8 +36,16 @@ plugins/dataview/     -> main.js, manifest.json, styles.css (0.5.68)
 
 **Scripts**
 
+Python (multiplataforma):
+
 ```powershell
 python 99_Sistema/Scripts/crear_nota.py --tipo probado --titulo "Titulo"
+python 99_Sistema/Scripts/actualizar_indices.py
+```
+
+En Windows, la alternativa es:
+
+```powershell
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Titulo"
 .\99_Sistema\Scripts\actualizar-indices.ps1
 .\99_Sistema\Scripts\diaria.ps1

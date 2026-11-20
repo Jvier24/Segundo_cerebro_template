@@ -95,10 +95,10 @@ if ($Tipo -eq 'Proyecto') {
         $fileName = $slug
     }
 }
-$targetDir = Join-Path $root ($folder -replace '/', '\')
+$targetDir = Join-Path $root ($folder -replace '/', [System.IO.Path]::DirectorySeparatorChar)
 
 # --- Fill template ----------------------------------------------------------
-$templatePath = Join-Path $sistemaDir ("Templates\" + $map[$Tipo].Template)
+$templatePath = Join-Path (Join-Path $sistemaDir 'Templates') $map[$Tipo].Template
 if (-not (Test-Path -LiteralPath $templatePath)) {
     Write-Error "No encuentro la plantilla: $templatePath"
     return
@@ -127,7 +127,7 @@ if ((Test-Path -LiteralPath $target) -and -not $Force) {
     Write-Host "Usa -Force para sobrescribirla." -ForegroundColor Yellow
 } else {
     [System.IO.File]::WriteAllText($target, $text, $utf8NoBom)
-    Write-Host "Creada: $folder\$fileName.md" -ForegroundColor Green
+    Write-Host "Creada: $folder/$fileName.md" -ForegroundColor Green
 }
 
 # --- Refresh indexes --------------------------------------------------------

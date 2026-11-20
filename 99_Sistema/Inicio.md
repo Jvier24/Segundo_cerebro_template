@@ -2,7 +2,7 @@
 tipo: indice
 estado: activo
 stack: []
-actualizado: 2026-11-19
+actualizado: 2026-11-20
 tags: [inicio, sistema]
 ---
 
@@ -44,25 +44,34 @@ tags: [inicio, sistema]
 ## 🧩 Conocimiento reciente
 
 <!-- INDICE:recientes -->
-- [[Los enlaces importan más que las carpetas]] - teoria
-- [[configuracion-inicial-de-boveda]] - probado
-- [[Un sistema que no se usa no sirve]] - teoria
-- [[Pensar es escribir]] - teoria
-- [[Estudios]] - area
-- [[proyecto-ejemplo]] - proyecto
 - [[prueba-parser-generico]] - experimento
-- [[Dev-Stack]] - area
+- [[configuracion-inicial-de-boveda]] - probado
+- [[proyecto-ejemplo]] - proyecto
 - [[Automatizacion-IA]] - area
+- [[Dev-Stack]] - area
+- [[Estudios]] - area
+- [[Los enlaces importan más que las carpetas]] - teoria
+- [[Pensar es escribir]] - teoria
+- [[Un sistema que no se usa no sirve]] - teoria
 <!-- /INDICE:recientes -->
 
 ---
+
+## ⚡ Comandos rápidos
+
+```powershell
+python 99_Sistema/Scripts/crear_nota.py --tipo teoria --titulo "Idea"
+python 99_Sistema/Scripts/actualizar_indices.py
+```
+
+En Windows también puedes usar `.\99_Sistema\Scripts\nueva-nota.ps1` y `.\99_Sistema\Scripts\actualizar-indices.ps1`.
 
 ## ✅ Rutina
 
 - [ ] **Mañana** — revisar [[_Proyectos]] y elegir 3 prioridades
 - [ ] **Durante el día** — capturar en [[_Inbox]] sin organizar
 - [ ] **Media tarde** — convertir capturas en [[_Recursos|conocimiento]] o tareas
-- [ ] **Viernes** — ejecutar `actualizar-indices.ps1` y revisar [[Mapa general]]
+- [ ] **Viernes** — ejecutar `python 99_Sistema/Scripts/actualizar_indices.py` y revisar [[Mapa general]]
 
 > [!tip] Regla de oro
 > El conocimiento sube de madurez: `teoria` → `experimento` → `probado`. Un `proyecto` es donde se pone a trabajar.

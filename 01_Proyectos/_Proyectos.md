@@ -25,6 +25,7 @@ tags: [indice, proyectos]
 ## Crear uno
 
 ```powershell
+python 99_Sistema/Scripts/crear_nota.py --tipo proyecto --titulo "Nombre"
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Proyecto -Titulo "Nombre" -Proyecto proyecto-ejemplo
 ```
 

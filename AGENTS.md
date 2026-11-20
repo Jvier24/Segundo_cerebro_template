@@ -69,17 +69,22 @@ Cada vez que se te pida documentar un hallazgo, una solución o un apunte en est
    - `proyecto` → `01_Proyectos/<slug>/`
    - Capturas sin clasificar y `diaria` → `00_Inbox/`
 
-4. **Prefiere el script** para crearlas (rellena plantilla y actualiza índices):
+4. **Prefiere el script** para crearlas (rellena plantilla y actualiza índices). Python es la opción multiplataforma; PowerShell es la alternativa en Windows:
+
+   ```powershell
+   python 99_Sistema/Scripts/crear_nota.py --tipo probado --titulo "Sesion reutilizable"
+   python 99_Sistema/Scripts/crear_nota.py --tipo proyecto --titulo "Sintetizador modular"
+   ```
 
    ```powershell
    .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Sesion reutilizable" -Proyecto proyecto-ejemplo -Stack "python, requests"
    ```
 
-   Tipos válidos: `Teoria`, `Probado`, `Experimento`, `Proyecto`.
+   Tipos válidos en `crear_nota.py`: `teoria`, `probado`, `experimento`, `proyecto`, `diaria`. En PowerShell: `Teoria`, `Probado`, `Experimento`, `Proyecto`. `crear_nota.py` refresca los índices al terminar; usa `--no-indices` para omitirlo.
 
 5. **Usa wikilinks de Obsidian** (por ejemplo `[[Inicio]]`) para enlazar con otras notas, y añade un alias (`[[Inicio|texto visible]]`) cuando el nombre sea largo.
 
-6. **Nunca escribas dentro de bloques `<!-- INDICE:... -->`**: se regeneran con `actualizar-indices.ps1`. Escribes fuera de ellos.
+6. **Nunca escribas dentro de bloques `<!-- INDICE:... -->`**: se regeneran con `python 99_Sistema/Scripts/actualizar_indices.py` (o `.\99_Sistema\Scripts\actualizar-indices.ps1` en Windows). Escribes fuera de ellos.
 
 7. **Nombres de carpetas y archivos sin acentos** (kebab-case). Los acentos en el contenido son normales.
 

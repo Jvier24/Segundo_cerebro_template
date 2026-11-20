@@ -87,15 +87,15 @@ Las reglas completas para agentes están en [AGENTS.md](AGENTS.md); el índice n
 > [!WARNING] Modo restringido
 > El interruptor de *Restricted mode* se guarda en la configuración global de Obsidian, **no dentro de la bóveda**. Por eso no viene desactivado en el repo y hay que cambiarlo una vez por equipo.
 
-**Requisitos:** Obsidian de escritorio · Python 3 (solo biblioteca estándar) · PowerShell 5.1+ para los scripts `.ps1`.
+**Requisitos:** Obsidian de escritorio · Python 3 (solo biblioteca estándar) para los scripts multiplataforma · PowerShell 5.1+ solo si usas la alternativa `.ps1` en Windows.
 
 ---
 
 ## Scripts
 
-### [`crear_nota.py`](99_Sistema/Scripts/crear_nota.py) — crear notas
+### [`crear_nota.py`](99_Sistema/Scripts/crear_nota.py) — crear notas (multiplataforma)
 
-Sin dependencias externas. Resuelve las rutas por sí mismo, así que funciona desde cualquier directorio.
+Sin dependencias externas. Resuelve las rutas por sí mismo, así que funciona desde cualquier directorio. Es la opción recomendada en cualquier sistema; `nueva-nota.ps1` queda como alternativa en Windows.
 
 ```powershell
 python 99_Sistema/Scripts/crear_nota.py --tipo teoria --titulo "Grafos dirigidos"
@@ -108,21 +108,26 @@ python 99_Sistema/Scripts/crear_nota.py --tipo diaria --titulo "Cierre de sprint
 - Sustituye `{{title}}` y `{{date:YYYY-MM-DD}}` por el título y la fecha reales.
 - Genera nombres de archivo en `kebab-case` sin acentos. En `proyecto` el slug es también la carpeta: `01_Proyectos/<slug>/<slug>.md`.
 - **No sobrescribe**: si el archivo existe, lo indica y termina.
+- Refresca los índices automáticamente al terminar; usa `--no-indices` para omitirlo.
 - La `diaria` lleva las secciones `## Log Técnico del Día`, `## Tareas / Bloqueos` y `## Ideas Rápidas`.
 
-### [`actualizar-indices.ps1`](99_Sistema/Scripts/actualizar-indices.ps1) — regenerar índices
+### [`actualizar_indices.py`](99_Sistema/Scripts/actualizar_indices.py) — regenerar índices (multiplataforma)
 
-Reescribe únicamente el contenido entre los marcadores `<!-- INDICE:clave -->` a partir del frontmatter. Nunca escribas a mano dentro de esos bloques.
+Reescribe únicamente el contenido entre los marcadores `<!-- INDICE:clave -->` a partir del frontmatter. Es idempotente y escribe UTF-8 sin BOM. Nunca escribas a mano dentro de esos bloques.
 
 ```powershell
-.\99_Sistema\Scripts\actualizar-indices.ps1
+python 99_Sistema/Scripts/actualizar_indices.py
 ```
+
+En Windows, `.\99_Sistema\Scripts\actualizar-indices.ps1` hace lo mismo.
 
 ### Otros scripts
 
 | Script | Función |
 | --- | --- |
-| [`nueva-nota.ps1`](99_Sistema/Scripts/nueva-nota.ps1) | Alternativa en PowerShell: acepta `-Proyecto` y `-Stack`, refresca índices y puede abrir la nota con `-Abrir` |
+| [`actualizar_indices.py`](99_Sistema/Scripts/actualizar_indices.py) | Regenera los bloques `<!-- INDICE:... -->` desde el frontmatter (multiplataforma) |
+| [`nueva-nota.ps1`](99_Sistema/Scripts/nueva-nota.ps1) | Alternativa en Windows: acepta `-Proyecto` y `-Stack`, refresca índices y puede abrir la nota con `-Abrir` |
+| [`actualizar-indices.ps1`](99_Sistema/Scripts/actualizar-indices.ps1) | Alternativa en Windows del indexador |
 | [`diaria.ps1`](99_Sistema/Scripts/diaria.ps1) | Crea y abre la diaria de hoy |
 | [`instalar-tarea.ps1`](99_Sistema/Scripts/instalar-tarea.ps1) | Programa la diaria automática a las 08:00 (tarea de Windows) |
 
