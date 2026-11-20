@@ -31,7 +31,7 @@ daily-notes.json      -> carpeta 00_Inbox
 app.json              -> adjuntos en 03_Recursos/Adjuntos
 core-plugins.json     -> diarias, plantillas, propiedades y zk-prefixer activos
 community-plugins.json -> ["dataview"]
-plugins/dataview/     -> main.js, manifest.json, styles.css (0.5.70)
+plugins/dataview/     -> main.js, manifest.json, styles.css (0.5.68)
 ```
 
 **Scripts**
@@ -47,11 +47,11 @@ python 99_Sistema/Scripts/crear_nota.py --tipo probado --titulo "Titulo"
 
 ## Condiciones y Entorno
 
-- Windows; PowerShell 5.1+ y Python 3.13.14 verificados. `crear_nota.py` usa solo biblioteca estándar.
+- Windows; PowerShell 5.1+ y Python 3.14.6 verificados. `crear_nota.py` usa solo biblioteca estándar.
 - Obsidian de escritorio. **El modo restringido debe desactivarse en Ajustes → Community plugins** para que Dataview cargue; esa preferencia se guarda fuera de la bóveda, no en `.obsidian/`.
 - Después de instalar el plugin, recargar Obsidian (`Ctrl + R`) o reiniciarlo.
 - Nombres de carpetas y archivos sin acentos; el contenido puede llevar acentos.
-- Fecha de verificación: 2026-11-19. Comprobados los cinco tipos de nota de `crear_nota.py`, sus destinos y la resolución de wikilinks.
+- Fecha de verificación: 2026-11-20. Comprobados los cinco tipos de nota de `crear_nota.py` y sus destinos: `teoria` y `probado` en `03_Recursos/`, `experimento` y `diaria` en `00_Inbox/`, y `proyecto` en `01_Proyectos/<slug>/<slug>.md`. Los wikilinks de las notas no archivadas resuelven a archivos existentes.
 
 > [!NOTE] Resultado
 > Esta nota aparece en la consulta «Conocimiento validado reciente» de [[00_Dashboard]] porque cumple `tipo = "probado"` y `estado = "validado"` dentro de `03_Recursos/`.
