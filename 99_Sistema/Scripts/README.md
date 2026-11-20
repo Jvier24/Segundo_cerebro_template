@@ -23,7 +23,7 @@ Ejecútalo siempre desde la raíz de la bóveda (aunque el script resuelve las r
 | `teoria` | `tpl_teoria.md` | `03_Recursos/` | `kebab-case.md` |
 | `probado` | `tpl_probado.md` | `03_Recursos/` | `kebab-case.md` |
 | `experimento` | `tpl_experimento.md` | `00_Inbox/` | `kebab-case.md` |
-| `proyecto` | `tpl_proyecto.md` | `01_Proyectos/` | `kebab-case.md` |
+| `proyecto` | `tpl_proyecto.md` | `01_Proyectos/<slug>/` | `<slug>.md` (carpeta y nota con el mismo nombre) |
 | `diaria` | (generada por el script) | `00_Inbox/` | `YYYY-MM-DD.md` |
 
 ### Ejemplos
@@ -40,7 +40,7 @@ python 99_Sistema/Scripts/crear_nota.py --tipo diaria --titulo "Cierre de sprint
 
 1. Sustituye `{{title}}` por el valor de `--titulo`.
 2. Sustituye `{{date:YYYY-MM-DD}}` (y cualquier `YYYY-MM-DD` literal) por la fecha actual del sistema.
-3. Convierte el título a `kebab-case`: minúsculas, sin acentos ni caracteres especiales, palabras unidas por guiones. Ejemplo: `"Parser de retail"` → `parser-de-retail.md`.
+3. Convierte el título a `kebab-case`: minúsculas, sin acentos ni caracteres especiales, palabras unidas por guiones. Ejemplo: `"Parser de retail"` → `parser-de-retail.md`. En `proyecto` ese slug es también el nombre de la carpeta: `"Sintetizador modular"` → `01_Proyectos/sintetizador-modular/sintetizador-modular.md`.
 4. Crea la carpeta destino si no existe.
 5. **No sobrescribe**: si el archivo ya existe, lo indica y termina sin cambios.
 
@@ -73,6 +73,8 @@ Equivalente con más opciones: acepta los parámetros `-Stack` y `-Proyecto`, ac
 ```powershell
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Sesion reutilizable" -Proyecto proyecto-ejemplo -Stack "python, requests" -Abrir
 ```
+
+Con `-Tipo Proyecto`, la nota se guarda en `01_Proyectos/<Proyecto>/` si pasas `-Proyecto`; si lo omites, el slug del título se usa a la vez como carpeta y como nombre de la nota (`01_Proyectos/<slug>/<slug>.md`).
 
 ## Otros scripts
 

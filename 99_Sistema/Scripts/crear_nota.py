@@ -88,6 +88,13 @@ def main(argv=None):
     if not titulo:
         parser.error("--titulo no puede estar vacio")
 
+    slug = kebab_case(titulo)
+
+    # Un proyecto vive en 01_Proyectos/<slug>/<slug>.md: la carpeta y la nota
+    # comparten el mismo nombre, como en proyecto-ejemplo.
+    if args.tipo == "proyecto":
+        destino = destino / slug
+
     if args.tipo == "diaria":
         contenido = contenido_diaria(hoy, titulo)
         nombre = hoy + ".md"
@@ -99,7 +106,7 @@ def main(argv=None):
         contenido = contenido.replace("{{title}}", titulo)
         contenido = contenido.replace("{{date:YYYY-MM-DD}}", hoy)
         contenido = contenido.replace("YYYY-MM-DD", hoy)
-        nombre = kebab_case(titulo) + ".md"
+        nombre = slug + ".md"
 
     destino.mkdir(parents=True, exist_ok=True)
     ruta = destino / nombre

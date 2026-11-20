@@ -62,7 +62,7 @@ borrador   activo          validado
 | `teoria` | `borrador` | `tpl_teoria.md` | `03_Recursos/` |
 | `experimento` | `activo` | `tpl_experimento.md` | `00_Inbox/` |
 | `probado` | `validado` | `tpl_probado.md` | `03_Recursos/` |
-| `proyecto` | `activo` | `tpl_proyecto.md` | `01_Proyectos/<slug>/` |
+| `proyecto` | `activo` | `tpl_proyecto.md` | `01_Proyectos/<slug>/<slug>.md` |
 | `diaria` | `borrador` | (generada por [`crear_nota.py`](99_Sistema/Scripts/crear_nota.py)) | `00_Inbox/YYYY-MM-DD.md` |
 
 **Promoción:** cuando un `experimento` se valida, se mueve a `03_Recursos/` (o a `01_Proyectos/<slug>/` si pasa a ser un proyecto) y su frontmatter cambia a `tipo: probado` + `estado: validado`, completando `## Condiciones y Entorno`. Nunca queda un experimento validado en el Inbox.
@@ -106,7 +106,7 @@ python 99_Sistema/Scripts/crear_nota.py --tipo diaria --titulo "Cierre de sprint
 ```
 
 - Sustituye `{{title}}` y `{{date:YYYY-MM-DD}}` por el título y la fecha reales.
-- Genera nombres de archivo en `kebab-case` sin acentos.
+- Genera nombres de archivo en `kebab-case` sin acentos. En `proyecto` el slug es también la carpeta: `01_Proyectos/<slug>/<slug>.md`.
 - **No sobrescribe**: si el archivo existe, lo indica y termina.
 - La `diaria` lleva las secciones `## Log Técnico del Día`, `## Tareas / Bloqueos` y `## Ideas Rápidas`.
 
