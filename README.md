@@ -5,6 +5,7 @@
 [![AI Agents](https://img.shields.io/badge/AI%20Agents-AGENTS.md-0891B2?style=flat-square)](AGENTS.md)
 [![Python](https://img.shields.io/badge/Python-3%2B-3776AB?style=flat-square&logo=python&logoColor=white)](99_Sistema/Scripts/crear_nota.py)
 [![Template](https://img.shields.io/badge/GitHub-Template-2EA44F?style=flat-square&logo=github&logoColor=white)](https://github.com/new)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
 Bóveda de **Obsidian** lista para clonar, pensada para estudios, desarrollo y automatización, e ideas creativas. Está diseñada para ser leída y actualizada tanto por personas como por agentes de código (OpenCode, Cursor, Windsurf, Antigravity…).
 

@@ -1,8 +1,8 @@
 ---
 tipo: probado
 estado: validado
-stack: []
-proyecto: ""
+stack: [Obsidian, Python, Git]
+proyecto: segundo-cerebro
 actualizado: 2026-11-19
 ---
 

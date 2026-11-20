@@ -13,7 +13,7 @@ tags: [indice, proyectos]
 ## Proyectos activos
 
 <!-- INDICE:proyectos -->
-- Sin proyectos activos
+- [[proyecto-ejemplo]]
 <!-- /INDICE:proyectos -->
 
 ## Carpetas de proyecto

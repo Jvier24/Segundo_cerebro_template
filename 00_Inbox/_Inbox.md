@@ -27,7 +27,7 @@ tags: [indice, inbox]
 ## Notas sueltas
 
 <!-- INDICE:inbox -->
-- Vacio por ahora.
+- [[prueba-parser-generico]]
 <!-- /INDICE:inbox -->
 
 Volver a [[Inicio]]

@@ -32,25 +32,27 @@ tags: [inicio, sistema]
 ## 🚀 Proyectos activos
 
 <!-- INDICE:proyectos -->
-- Sin proyectos activos
+- [[proyecto-ejemplo]]
 <!-- /INDICE:proyectos -->
 
 ## 📥 Inbox
 
 <!-- INDICE:inbox -->
-- Vacio por ahora.
+- [[prueba-parser-generico]]
 <!-- /INDICE:inbox -->
 
 ## 🧩 Conocimiento reciente
 
 <!-- INDICE:recientes -->
 - [[Los enlaces importan más que las carpetas]] - teoria
-- [[Pensar es escribir]] - teoria
-- [[Un sistema que no se usa no sirve]] - teoria
 - [[configuracion-inicial-de-boveda]] - probado
-- [[Automatizacion-IA]] - area
-- [[Dev-Stack]] - area
+- [[Un sistema que no se usa no sirve]] - teoria
+- [[Pensar es escribir]] - teoria
 - [[Estudios]] - area
+- [[proyecto-ejemplo]] - proyecto
+- [[prueba-parser-generico]] - experimento
+- [[Dev-Stack]] - area
+- [[Automatizacion-IA]] - area
 <!-- /INDICE:recientes -->
 
 ---

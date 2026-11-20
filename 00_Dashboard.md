@@ -61,7 +61,7 @@ LIMIT 10
 
 ```dataview
 TABLE proyecto, stack, actualizado
-FROM "03_Recursos"
+FROM "00_Inbox"
 WHERE tipo = "experimento"
 SORT actualizado DESC
 ```

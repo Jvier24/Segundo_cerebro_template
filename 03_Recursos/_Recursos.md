@@ -25,7 +25,7 @@ Conceptos entendidos, todavía sin aplicar.
 Hipótesis en curso, con registro de pruebas y errores. Viven en [[_Inbox]] mientras no estén validadas; al validarse se promueven aquí como `probado`. Ver también [[00_Dashboard]].
 
 <!-- INDICE:experimento -->
-- Sin notas de experimento
+- [[prueba-parser-generico]]
 <!-- /INDICE:experimento -->
 
 ## ✅ Validados (`validado`)
