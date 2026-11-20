@@ -3,10 +3,10 @@ tipo: probado
 estado: validado
 stack: [Obsidian, Python, Git]
 proyecto: segundo-cerebro
-actualizado: 2026-11-19
+actualizado: 2026-11-20
 ---
 
-# Solución / Patrón Validado
+# Configuración inicial de bóveda
 
 ## Problema que resuelve
 

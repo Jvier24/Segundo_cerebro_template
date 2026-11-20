@@ -6,7 +6,7 @@ stack: []
 actualizado: {{date:YYYY-MM-DD}}
 ---
 
-# Concepto
+# {{title}}
 
 ## Resumen
 

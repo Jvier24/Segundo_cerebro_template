@@ -3,10 +3,10 @@ tipo: experimento
 estado: activo
 stack: [Python]
 proyecto: proyecto-ejemplo
-actualizado: 2026-11-19
+actualizado: 2026-11-20
 ---
 
-# Hipótesis / Prueba de Concepto
+# Prueba de parser genérico
 
 ## Objetivo
 

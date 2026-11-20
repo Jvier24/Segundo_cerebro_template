@@ -6,7 +6,7 @@ repo: ""
 actualizado: {{date:YYYY-MM-DD}}
 ---
 
-# Nombre del Proyecto
+# {{title}}
 
 ## Arquitectura y Stack
 
