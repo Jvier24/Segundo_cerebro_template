@@ -2,7 +2,7 @@
 tipo: indice
 estado: activo
 stack: []
-actualizado: 2026-11-19
+actualizado: 2026-11-20
 tags: [indice, proyectos]
 ---
 
@@ -25,7 +25,8 @@ tags: [indice, proyectos]
 ## Crear uno
 
 ```powershell
+python 99_Sistema/Scripts/crear_nota.py --tipo proyecto --titulo "Nombre"
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Proyecto -Titulo "Nombre" -Proyecto proyecto-ejemplo
 ```
 
-Si omites `-Proyecto`, la nota se crea en la raíz de `01_Proyectos`.
+Si omites `-Proyecto`, el slug del título se usa como carpeta y como nombre de la nota: `01_Proyectos/<slug>/<slug>.md`.

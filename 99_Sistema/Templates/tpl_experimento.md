@@ -6,7 +6,7 @@ proyecto: ""
 actualizado: {{date:YYYY-MM-DD}}
 ---
 
-# Hipótesis / Prueba de Concepto
+# {{title}}
 
 ## Objetivo
 

@@ -2,7 +2,7 @@
 tipo: indice
 estado: activo
 stack: []
-actualizado: 2026-11-19
+actualizado: 2026-11-20
 tags: [dashboard, indice]
 ---
 
@@ -71,7 +71,11 @@ SORT actualizado DESC
 ## 🔧 Referencia rápida
 
 ```powershell
-.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Patrón" -Proyecto proyecto-ejemplo -Stack "python"
+python 99_Sistema/Scripts/crear_nota.py --tipo probado --titulo "Patron"
+python 99_Sistema/Scripts/actualizar_indices.py
+
+# Alternativa en Windows
+.\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Probado -Titulo "Patron" -Proyecto proyecto-ejemplo -Stack "python"
 .\99_Sistema\Scripts\actualizar-indices.ps1
 .\99_Sistema\Scripts\diaria.ps1
 ```

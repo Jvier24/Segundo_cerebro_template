@@ -22,10 +22,27 @@ $sistemaDir = Split-Path -Parent $scriptsDir
 $root = Split-Path -Parent $sistemaDir
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
+function ConvertTo-Slug {
+    param([string]$Text)
+
+    $normalized = $Text.Normalize([System.Text.NormalizationForm]::FormD)
+    $sb = New-Object System.Text.StringBuilder
+    foreach ($ch in $normalized.ToCharArray()) {
+        $category = [System.Globalization.CharUnicodeInfo]::GetUnicodeCategory($ch)
+        if ($category -ne [System.Globalization.UnicodeCategory]::NonSpacingMark) {
+            [void]$sb.Append($ch)
+        }
+    }
+    $ascii = $sb.ToString()
+    $slug = ($ascii.ToLowerInvariant() -replace '[^a-z0-9]+', '-').Trim('-')
+    if ([string]::IsNullOrWhiteSpace($slug)) { return 'nota' }
+    return $slug
+}
+
 $map = [ordered]@{
     'Teoria'      = @{ Template = 'tpl_teoria.md';      Folder = '03_Recursos' }
     'Probado'     = @{ Template = 'tpl_probado.md';     Folder = '03_Recursos' }
-    'Experimento' = @{ Template = 'tpl_experimento.md'; Folder = '03_Recursos' }
+    'Experimento' = @{ Template = 'tpl_experimento.md'; Folder = '00_Inbox' }
     'Proyecto'    = @{ Template = 'tpl_proyecto.md';    Folder = '01_Proyectos' }
 }
 
@@ -63,16 +80,25 @@ if ([string]::IsNullOrWhiteSpace($clean)) {
     Write-Error "El titulo no produce un nombre de archivo valido."
     return
 }
+$slug = ConvertTo-Slug $displayTitle
 
 # --- Resolve folder ---------------------------------------------------------
+# Un proyecto vive en 01_Proyectos/<slug>/<slug>.md: la carpeta y la nota
+# comparten el mismo nombre, como en proyecto-ejemplo.
 $folder = $map[$Tipo].Folder
-if ($Tipo -eq 'Proyecto' -and -not [string]::IsNullOrWhiteSpace($Proyecto)) {
-    $folder = "01_Proyectos/$Proyecto"
+$fileName = $clean
+if ($Tipo -eq 'Proyecto') {
+    if (-not [string]::IsNullOrWhiteSpace($Proyecto)) {
+        $folder = "01_Proyectos/$Proyecto"
+    } else {
+        $folder = "01_Proyectos/$slug"
+        $fileName = $slug
+    }
 }
-$targetDir = Join-Path $root ($folder -replace '/', '\')
+$targetDir = Join-Path $root ($folder -replace '/', [System.IO.Path]::DirectorySeparatorChar)
 
 # --- Fill template ----------------------------------------------------------
-$templatePath = Join-Path $sistemaDir ("Templates\" + $map[$Tipo].Template)
+$templatePath = Join-Path (Join-Path $sistemaDir 'Templates') $map[$Tipo].Template
 if (-not (Test-Path -LiteralPath $templatePath)) {
     Write-Error "No encuentro la plantilla: $templatePath"
     return
@@ -94,14 +120,14 @@ if ($Stack.Count -gt 0) {
 if (-not (Test-Path -LiteralPath $targetDir)) {
     New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
 }
-$target = Join-Path $targetDir ($clean + '.md')
+$target = Join-Path $targetDir ($fileName + '.md')
 
 if ((Test-Path -LiteralPath $target) -and -not $Force) {
     Write-Warning "Ya existe: $target"
     Write-Host "Usa -Force para sobrescribirla." -ForegroundColor Yellow
 } else {
     [System.IO.File]::WriteAllText($target, $text, $utf8NoBom)
-    Write-Host "Creada: $folder\$clean.md" -ForegroundColor Green
+    Write-Host "Creada: $folder/$fileName.md" -ForegroundColor Green
 }
 
 # --- Refresh indexes --------------------------------------------------------
@@ -115,6 +141,6 @@ if ($Abrir) {
     $vault = [uri]::EscapeDataString((Split-Path -Leaf $root))
     $fileParam = (($folder -split '/' | ForEach-Object {
         [uri]::EscapeDataString($_)
-    }) -join '/') + '/' + [uri]::EscapeDataString($clean)
+    }) -join '/') + '/' + [uri]::EscapeDataString($fileName)
     Start-Process "obsidian://open?vault=$vault&file=$fileParam"
 }

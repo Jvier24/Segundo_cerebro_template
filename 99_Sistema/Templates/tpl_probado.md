@@ -6,7 +6,7 @@ proyecto: ""
 actualizado: {{date:YYYY-MM-DD}}
 ---
 
-# Solución / Patrón Validado
+# {{title}}
 
 ## Problema que resuelve
 

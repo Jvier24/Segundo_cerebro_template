@@ -2,7 +2,7 @@
 tipo: sistema
 estado: activo
 stack: []
-actualizado: 2026-11-19
+actualizado: 2026-11-20
 tags: [sistema, guia]
 ---
 
@@ -26,7 +26,7 @@ Tu segundo cerebro combina **PARA** (dónde vive algo) con un eje de **madurez d
 04_Archivo/                  Lo inactivo
 99_Sistema/                  Plantillas, scripts y documentación
   ├── Templates/             4 plantillas oficiales
-  └── Scripts/               Automatización PowerShell
+  └── Scripts/               Automatización Python y PowerShell
 ```
 
 ## 2. Madurez del conocimiento
@@ -47,11 +47,22 @@ El flujo natural es `teoria → experimento → probado`, y de ahí a un `proyec
 - **Navegar:** `Ctrl + O` (abrir por nombre), `Ctrl + G` (saltar a enlace).
 - **Ver conexiones:** Graph view desde la cinta lateral.
 
-## 4. Automatización (PowerShell)
+## 4. Automatización (Python multiplataforma; PowerShell en Windows)
 
-Abre PowerShell en la raíz de la bóveda (la carpeta que clonaste).
+Abre una terminal en la raíz de la bóveda (la carpeta que clonaste).
 
 ### Crear conocimiento
+
+Python es la opción recomendada en cualquier sistema:
+
+```powershell
+python 99_Sistema/Scripts/crear_nota.py --tipo teoria --titulo "Grafo dirigido"
+python 99_Sistema/Scripts/crear_nota.py --tipo experimento --titulo "Parser con BeautifulSoup"
+python 99_Sistema/Scripts/crear_nota.py --tipo probado --titulo "Sesión reutilizable de requests"
+python 99_Sistema/Scripts/crear_nota.py --tipo proyecto --titulo "Plan de pruebas"
+```
+
+En Windows, `nueva-nota.ps1` es la alternativa con `-Proyecto` y `-Stack`:
 
 ```powershell
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Teoria -Titulo "Grafo dirigido"
@@ -60,15 +71,17 @@ Abre PowerShell en la raíz de la bóveda (la carpeta que clonaste).
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Proyecto -Titulo "Plan de pruebas" -Proyecto proyecto-ejemplo
 ```
 
-Tipos válidos: `Teoria`, `Probado`, `Experimento`, `Proyecto`. Sin argumentos, el script muestra un menú.
+Tipos válidos en `crear_nota.py`: `teoria`, `probado`, `experimento`, `proyecto`, `diaria`. En PowerShell: `Teoria`, `Probado`, `Experimento`, `Proyecto`. Sin argumentos, el script de PowerShell muestra un menú. `crear_nota.py` refresca los índices al terminar; usa `--no-indices` para omitirlo.
 
 ### Actualizar índices
 
 ```powershell
-.\99_Sistema\Scripts\actualizar-indices.ps1
+python 99_Sistema/Scripts/actualizar_indices.py
 ```
 
-Escanea la bóveda, lee el frontmatter y rellena los bloques marcados. Se ejecuta solo al crear una nota.
+En Windows, la alternativa es `.\99_Sistema\Scripts\actualizar-indices.ps1`.
+
+Escanea la bóveda, lee el frontmatter y rellena los bloques marcados. Se ejecuta solo al crear una nota con `crear_nota.py`.
 
 ### Diaria y tarea programada
 
@@ -86,9 +99,9 @@ Bloques con este formato:
 
 ```html
 <!-- INDICE:teoria -->
-- [[Un sistema que no se usa no sirve]]
-- [[Pensar es escribir]]
 - [[Los enlaces importan más que las carpetas]]
+- [[Pensar es escribir]]
+- [[Un sistema que no se usa no sirve]]
 <!-- /INDICE:teoria -->
 ```
 
@@ -101,7 +114,7 @@ Claves disponibles: `proyectos`, `areas`, `teoria`, `experimento`, `probado`, `a
 - [ ] Vaciar [[_Inbox]]
 - [ ] Revisar [[_Proyectos]] y [[Inicio]]
 - [ ] Pasar un `experimento` a `probado` si ya funciona
-- [ ] Ejecutar `actualizar-indices.ps1`
+- [ ] Ejecutar `python 99_Sistema/Scripts/actualizar_indices.py`
 - [ ] Archivar lo terminado en [[_Archivo]]
 
 ---

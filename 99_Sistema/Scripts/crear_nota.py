@@ -6,6 +6,7 @@ Sin dependencias externas: solo biblioteca estandar de Python 3.
 
 import argparse
 import re
+import subprocess
 import sys
 import unicodedata
 from datetime import date
@@ -14,6 +15,7 @@ from pathlib import Path
 # 99_Sistema/Scripts/crear_nota.py -> tres niveles arriba esta la raiz de la boveda
 VAULT = Path(__file__).resolve().parents[2]
 TEMPLATES = VAULT / "99_Sistema" / "Templates"
+INDEX_SCRIPT = Path(__file__).resolve().parent / "actualizar_indices.py"
 
 # tipo -> (carpeta destino, plantilla; None significa contenido generado)
 DESTINOS = {
@@ -64,6 +66,13 @@ def contenido_diaria(hoy, titulo):
     )
 
 
+def actualizar_indices():
+    """Refresca los bloques INDICE si el indexador esta disponible."""
+    if INDEX_SCRIPT.is_file():
+        sys.stdout.flush()
+        subprocess.run([sys.executable, str(INDEX_SCRIPT)], check=False)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description="Crea una nota en la boveda a partir de una plantilla oficial."
@@ -79,6 +88,11 @@ def main(argv=None):
         required=True,
         help="titulo de la nota (se usa como nombre de archivo en kebab-case)",
     )
+    parser.add_argument(
+        "--no-indices",
+        action="store_true",
+        help="no refrescar los indices automaticos al terminar",
+    )
     args = parser.parse_args(argv)
 
     hoy = date.today().isoformat()
@@ -87,6 +101,13 @@ def main(argv=None):
 
     if not titulo:
         parser.error("--titulo no puede estar vacio")
+
+    slug = kebab_case(titulo)
+
+    # Un proyecto vive en 01_Proyectos/<slug>/<slug>.md: la carpeta y la nota
+    # comparten el mismo nombre, como en proyecto-ejemplo.
+    if args.tipo == "proyecto":
+        destino = destino / slug
 
     if args.tipo == "diaria":
         contenido = contenido_diaria(hoy, titulo)
@@ -99,19 +120,23 @@ def main(argv=None):
         contenido = contenido.replace("{{title}}", titulo)
         contenido = contenido.replace("{{date:YYYY-MM-DD}}", hoy)
         contenido = contenido.replace("YYYY-MM-DD", hoy)
-        nombre = kebab_case(titulo) + ".md"
+        nombre = slug + ".md"
 
     destino.mkdir(parents=True, exist_ok=True)
     ruta = destino / nombre
 
     if ruta.exists():
         print("Ya existe, no se sobrescribio: {}".format(ruta))
+        if not args.no_indices:
+            actualizar_indices()
         return 0
 
     with ruta.open("w", encoding="utf-8", newline="\n") as archivo:
         archivo.write(contenido)
 
     print("Creada: {}".format(ruta))
+    if not args.no_indices:
+        actualizar_indices()
     return 0
 
 

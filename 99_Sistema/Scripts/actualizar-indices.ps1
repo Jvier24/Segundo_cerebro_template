@@ -56,24 +56,29 @@ function List-Notes {
 }
 
 # --- Gather notes -----------------------------------------------------------
-$mdFiles = Get-ChildItem -LiteralPath $root -Recurse -File -Filter '*.md' |
-    Where-Object {
-        $_.FullName -notmatch '\\\.obsidian\\' -and
-        $_.FullName -notmatch '\\99_Sistema\\Templates\\' -and
-        $_.FullName -notmatch '\\99_Sistema\\Scripts\\' -and
-        $_.FullName -notmatch '\\Plantillas legacy\\'
-    }
+# Las rutas relativas se normalizan a '/' para que las exclusiones y el orden
+# funcionen igual en Windows y en otros sistemas.
+$mdFiles = Get-ChildItem -LiteralPath $root -Recurse -File -Filter '*.md'
 
 $notes = foreach ($file in $mdFiles) {
+    $rel = $file.FullName.Substring($root.Length).TrimStart([char[]]@('\', '/')) -replace '\\', '/'
+    if ($rel -match '(^|/)\.obsidian/' -or
+        $rel -match '(^|/)99_Sistema/Templates/' -or
+        $rel -match '(^|/)99_Sistema/Scripts/' -or
+        $rel -match '(^|/)Plantillas legacy/') {
+        continue
+    }
+
     $text = [System.IO.File]::ReadAllText($file.FullName)
     [pscustomobject]@{
         File = $file
         Name = [System.IO.Path]::GetFileNameWithoutExtension($file.Name)
-        Rel  = $file.FullName.Substring($root.Length + 1)
+        Rel  = $rel
         Text = $text
         Fm   = Get-Frontmatter -Text $text
     }
 }
+$notes = @($notes | Sort-Object -Property Rel)
 
 # --- Build index blocks -----------------------------------------------------
 $blocks = @{}
@@ -87,22 +92,23 @@ $blocks['areas'] = List-Notes ($notes | Where-Object {
 }) 'Sin areas activas'
 
 foreach ($type in @('teoria', 'experimento', 'probado')) {
-    $items = $notes | Where-Object { $_.Fm['tipo'] -eq $type } |
-        Sort-Object { Get-NoteDate $_ } -Descending
+    # Fecha descendente y, en caso de empate, ruta ascendente: mismo orden
+    # reproducible que el indexador de Python.
+    $items = $notes | Where-Object { $_.Fm['tipo'] -eq $type } | Sort-Object -Property @{ Expression = { Get-NoteDate $_ }; Descending = $true }, @{ Expression = { $_.Rel }; Descending = $false }
     $blocks[$type] = List-Notes $items "Sin notas de $type"
 }
 
 $blocks['archivo'] = List-Notes ($notes | Where-Object {
-    $_.Rel -like '04_Archivo\*' -and $_.Fm['tipo'] -ne 'indice'
+    $_.Rel -like '04_Archivo/*' -and $_.Fm['tipo'] -ne 'indice'
 }) 'Vacio por ahora.'
 
 $blocks['inbox'] = List-Notes ($notes | Where-Object {
-    $_.Rel -like '00_Inbox\*' -and $_.Fm['tipo'] -ne 'indice'
+    $_.Rel -like '00_Inbox/*' -and $_.Fm['tipo'] -ne 'indice'
 }) 'Vacio por ahora.'
 
 $recientes = $notes | Where-Object {
     $_.Fm['tipo'] -in @('proyecto', 'teoria', 'experimento', 'probado', 'area', 'diaria')
-} | Sort-Object { Get-NoteDate $_ } -Descending | Select-Object -First 12
+} | Sort-Object -Property @{ Expression = { Get-NoteDate $_ }; Descending = $true }, @{ Expression = { $_.Rel }; Descending = $false } | Select-Object -First 12
 
 $recientesArr = @($recientes | Where-Object { $null -ne $_ })
 if ($recientesArr.Count -eq 0) {
@@ -137,17 +143,15 @@ foreach ($note in $notes) {
     $sb = New-Object System.Text.StringBuilder
     $last = 0
     $hit = $false
+    $nl = if ($text.Contains("`r`n")) { "`r`n" } else { "`n" }
 
     foreach ($m in $idxMatches) {
         $key = $m.Groups['key'].Value.ToLowerInvariant()
         [void]$sb.Append($text.Substring($last, $m.Index - $last))
 
         if ($blocks.ContainsKey($key)) {
-            [void]$sb.Append("<!-- INDICE:$key -->")
-            [void]$sb.Append("`n")
-            [void]$sb.Append($blocks[$key])
-            [void]$sb.Append("`n")
-            [void]$sb.Append("<!-- /INDICE:$key -->")
+            $blockText = $blocks[$key].Replace("`n", $nl)
+            [void]$sb.Append("<!-- INDICE:$key -->$nl$blockText$nl<!-- /INDICE:$key -->")
             $hit = $true
         } else {
             [void]$sb.Append($m.Value)

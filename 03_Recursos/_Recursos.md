@@ -2,7 +2,7 @@
 tipo: indice
 estado: activo
 stack: []
-actualizado: 2026-11-19
+actualizado: 2026-11-20
 tags: [indice, recursos]
 ---
 
@@ -15,9 +15,9 @@ tags: [indice, recursos]
 Conceptos entendidos, todavía sin aplicar.
 
 <!-- INDICE:teoria -->
-- [[Un sistema que no se usa no sirve]]
-- [[Pensar es escribir]]
 - [[Los enlaces importan más que las carpetas]]
+- [[Pensar es escribir]]
+- [[Un sistema que no se usa no sirve]]
 <!-- /INDICE:teoria -->
 
 ## 🧪 Experimentos (`activo`)
@@ -49,6 +49,16 @@ Soluciones que funcionan, con código y condiciones de entorno.
 - [[_Teoria]] — todas las notas de teoría
 
 ## Crear conocimiento
+
+Python es la opción multiplataforma:
+
+```powershell
+python 99_Sistema/Scripts/crear_nota.py --tipo teoria --titulo "Concepto"
+python 99_Sistema/Scripts/crear_nota.py --tipo experimento --titulo "Prueba"
+python 99_Sistema/Scripts/crear_nota.py --tipo probado --titulo "Patron"
+```
+
+Alternativa en Windows:
 
 ```powershell
 .\99_Sistema\Scripts\nueva-nota.ps1 -Tipo Teoria -Titulo "Concepto"
